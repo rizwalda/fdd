@@ -1,0 +1,250 @@
+@import './fonts.css';
+@import './post.css';
+
+:root {
+  /* Min Content Width */
+  --content-width: 25rem;
+
+  /* Typography */
+  --sans:
+    'JetBrains Mono', 'IBM Plex Mono', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --serif: 'JetBrains Mono', 'IBM Plex Mono', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --mono: 'JetBrains Mono', 'IBM Plex Mono', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+  --font-size-s: 0.8125rem;
+  --font-size-m: 0.9375rem;
+  --font-size-l: 1.0625rem;
+
+  --font-weight-light: 350;
+  --font-weight-regular: 400;
+  --font-weight-bold: 500;
+
+  --spacing-s: -0.08em;
+  --spacing-m: -0.02em;
+
+  /* Light Mode Colors (Default) */
+  --bg: #ffffff;
+  --text-primary: rgba(0, 0, 0, 0.85);
+  --text-secondary: rgba(0, 0, 0, 0.4);
+  --text-tertiary: rgba(0, 0, 0, 0.24);
+  --border: rgba(0, 0, 0, 0.1);
+  --selection: rgba(0, 0, 0, 0.15);
+  --code-bg: rgba(0, 0, 0, 0.04);
+  --mark: #f3ffc4;
+  --accent: #ff79c6;
+
+  /* Syntax Theme  */
+  --astro-code-foreground: rgba(0, 0, 0, 0.85);
+  --astro-code-background: rgba(0, 0, 0, 0.03);
+  --astro-code-token-constant: rgba(0, 0, 0, 0.85);
+  --astro-code-token-string: rgba(0, 0, 0, 0.85);
+  --astro-code-token-comment: rgba(0, 0, 0, 0.35);
+  --astro-code-token-keyword: rgba(0, 0, 0, 0.55);
+  --astro-code-token-parameter: rgba(0, 0, 0, 0.85);
+  --astro-code-token-function: rgba(0, 0, 0, 0.85);
+  --astro-code-token-string-expression: rgba(0, 0, 0, 0.55);
+  --astro-code-token-punctuation: rgba(0, 0, 0, 0.55);
+  --astro-code-token-link: rgba(0, 0, 0, 0.55);
+}
+
+/* Light Mode (Explicit) */
+html.light {
+  --bg: #ffffff;
+  --text-primary: rgba(0, 0, 0, 0.85);
+  --text-secondary: rgba(0, 0, 0, 0.4);
+  --text-tertiary: rgba(0, 0, 0, 0.24);
+  --border: rgba(0, 0, 0, 0.1);
+  --selection: rgba(0, 0, 0, 0.15);
+  --code-bg: rgba(0, 0, 0, 0.04);
+  --mark: #f3ffc4;
+  --accent: #ff79c6;
+
+  /* Syntax Theme  */
+  --astro-code-foreground: rgba(0, 0, 0, 0.85);
+  --astro-code-background: rgba(0, 0, 0, 0.03);
+  --astro-code-token-constant: rgba(0, 0, 0, 0.85);
+  --astro-code-token-string: rgba(0, 0, 0, 0.85);
+  --astro-code-token-comment: rgba(0, 0, 0, 0.35);
+  --astro-code-token-keyword: rgba(0, 0, 0, 0.5);
+  --astro-code-token-parameter: rgba(0, 0, 0, 0.85);
+  --astro-code-token-function: rgba(0, 0, 0, 0.85);
+  --astro-code-token-string-expression: rgba(0, 0, 0, 0.55);
+  --astro-code-token-punctuation: rgba(0, 0, 0, 0.55);
+  --astro-code-token-link: rgba(0, 0, 0, 0.55);
+}
+
+/* Dark Mode (Explicit) */
+html.dark {
+  --bg: #0a0a0a;
+  --text-primary: #e0e0e0;
+  --text-secondary: #888888;
+  --text-tertiary: #555555;
+  --border: #333333;
+  --selection: rgba(255, 121, 198, 0.2);
+  --code-bg: rgba(255, 255, 255, 0.04);
+  --mark: #545b37;
+  --accent: #ff79c6;
+
+  /* Syntax Theme  */
+  --astro-code-foreground: #e0e0e0;
+  --astro-code-background: rgba(255, 255, 255, 0.03);
+  --astro-code-token-constant: #e0e0e0;
+  --astro-code-token-string: #e0e0e0;
+  --astro-code-token-comment: #888888;
+  --astro-code-token-keyword: #ff79c6;
+  --astro-code-token-parameter: #e0e0e0;
+  --astro-code-token-function: #e0e0e0;
+  --astro-code-token-string-expression: #ff79c6;
+  --astro-code-token-punctuation: #888888;
+  --astro-code-token-link: #ff79c6;
+}
+
+html {
+  background-color: var(--bg);
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  font-family: var(--sans);
+  font-feature-settings: 'ss03' 1;
+  font-size: var(--font-size-m);
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+  color: var(--text-primary);
+  font-display: swap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  letter-spacing: var(--spacing-m);
+  padding: 6rem 1.5rem 1.5rem 1.5rem;
+  overscroll-behavior-y: contain;
+  transition: background-color 0.2s ease-out;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 3.5rem 1.5rem 1.5rem 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background-color: var(--selection);
+}
+
+:focus {
+  outline: 2px solid var(--text-tertiary);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--text-tertiary);
+  outline-offset: 2px;
+}
+
+body[data-width] {
+  max-width: var(--content-width);
+}
+
+body[data-centered='true'] {
+  margin: 0 auto;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.date {
+  margin: 0;
+  font-weight: var(--font-weight-light);
+  color: #888888;
+  flex-shrink: 0;
+  letter-spacing: var(--spacing-s);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings:
+    'tnum' 1,
+    'zero' 0,
+    'cv01' 1,
+    'cv02' 1,
+    'calt' 1,
+    'ss03' 1,
+    'ordn' 1;
+}
+
+.date .month {
+  letter-spacing: var(--spacing-m);
+}
+
+.sr-only {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Index page specific styles - larger text for homepage only */
+.page-content {
+  font-size: 1.1875rem;
+}
+
+.page-content .date {
+  font-size: 1.0625rem;
+}
+
+.page-content h1 {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1.5rem;
+}
+
+.page-content .about.prose {
+  font-size: 1.1875rem;
+  line-height: 1.5;
+}
+
+.page-content .about.prose p {
+  font-size: 1.1875rem;
+  line-height: 1.5;
+}
+
+.page-content .about.prose a {
+  font-size: 1.1875rem;
+  line-height: 1.5;
+}
+
+.page-content .about.prose em {
+  font-family: var(--mono);
+  font-style: italic;
+  font-size: 1.1875rem;
+  line-height: 1.5;
+  letter-spacing: var(--spacing-m);
+}
