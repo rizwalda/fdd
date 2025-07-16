@@ -11,7 +11,7 @@
       initialized: false,
 
       getSystemTheme() {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        return 'dark'
       },
 
       getStoredTheme() {
@@ -44,8 +44,8 @@
       },
 
       applyTheme(theme) {
-        document.documentElement.classList.remove('light', 'dark')
-        document.documentElement.classList.add(theme)
+        document.documentElement.classList.remove('dark')
+        document.documentElement.classList.add('dark')
 
         // Dispatch event for other components
         document.dispatchEvent(
@@ -60,12 +60,9 @@
       },
 
       toggle() {
-        const currentTheme = this.getEffectiveTheme()
-        // Simply toggle between light and dark
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
-
-        this.setStoredTheme(newTheme)
-        this.applyTheme(newTheme)
+        // Always stay dark
+        this.setStoredTheme('dark')
+        this.applyTheme('dark')
       },
 
       init() {
@@ -74,9 +71,9 @@
         // Set initial theme (maintain current theme when refreshing page)
         this.applyTheme(this.getEffectiveTheme())
 
-        // Listen for system theme changes
+        // Listen for system theme changes (but always use dark)
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-          const newSystemTheme = e.matches ? 'dark' : 'light'
+          const newSystemTheme = 'dark'
 
           // Always follow system theme changes and update stored theme preference
           this.setStoredTheme(newSystemTheme)
@@ -95,15 +92,11 @@
       if (window.ThemeManager) {
         // Use requestAnimationFrame to ensure execution in the next frame, avoiding conflicts with transition animations
         requestAnimationFrame(() => {
-          const currentTheme = window.ThemeManager.getEffectiveTheme()
-          const appliedTheme = document.documentElement.classList.contains('dark')
-            ? 'dark'
-            : 'light'
+          const currentTheme = 'dark'
+          const appliedTheme = 'dark'
 
-          // Only reapply theme when there's a mismatch to avoid unnecessary flickering
-          if (currentTheme !== appliedTheme) {
-            window.ThemeManager.applyTheme(currentTheme)
-          }
+          // Always apply dark theme
+          window.ThemeManager.applyTheme('dark')
         })
       }
     })

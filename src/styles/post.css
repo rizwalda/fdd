@@ -544,12 +544,10 @@
   vertical-align: baseline;
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .katex,
-  .katex * {
-    color: inherit;
-  }
+/* KaTeX color support - always inherit dark theme colors */
+.katex,
+.katex * {
+  color: inherit;
 }
 
 /* Reading Time */

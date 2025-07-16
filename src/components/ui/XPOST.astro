@@ -7,9 +7,9 @@
       return
     }
 
-    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    // Always use dark theme
     xCards.forEach((element) => {
-      element.setAttribute('data-theme', isDark ? 'dark' : 'light')
+      element.setAttribute('data-theme', 'dark')
     })
 
     const script = document.createElement('script')
