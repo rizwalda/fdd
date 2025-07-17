@@ -1,0 +1,145 @@
+---
+title: "IOS Sideloading I (Leaked Certs.)"
+pubDate: '2025-07-18'
+---
+
+
+
+I wasn’t even planning to write this, I just wanted to install a few apps. That’s it.
+
+But nope. Turns out when you're using anything made by Apple, even something that basic turns into a fight. No sideloading, no third-party stores, just their App Store and whatever they decide you’re allowed to run.
+
+It’s bullshit, honestly. I bought the thing, I should be able to use it how I want.
+
+Anyway, if you’re stuck in the same mess, here’s what actually worked for me.
+
+---
+
+## Step 1: Install DNS Profile
+
+iOS restricts third-party installs unless you run a DNS filter or block Apple’s cert checks. Start here:
+
+<a href="https://tinyurl.com/5py6ts5a" class="button">Install DNS Profile</a>
+
+### Instructions
+
+1. Go to **Settings → General → VPN, DNS, Device Management**.
+2. Install the profile and let it do its thing.
+
+### For iOS 18 and Up
+
+- The profile goes to your Downloads folder in the Files app.
+- Rename it so it ends in `.mobileconfig`, then open it manually to install.
+- iOS 18 reboots automatically after profile install, so turn on Airplane Mode before that to prevent DNS leaks.
+
+### Block These Domains (Optional but Recommended)
+
+- `certs.apple.com`
+- `crl.apple.com`
+- `ocsp.apple.com`
+- `ocsp2.apple.com`
+- `ocsp.digicert.com`
+- `valid.apple.com`
+- `appattest.apple.com`
+
+Use Cloudflare Zero Trust or Egern (for AdGuard Home users) to add these block rules.
+
+---
+
+## Step 2: Install Esign App
+
+Esign is the tool you’ll use to unzip, sign, and install .ipa files.
+
+### Try One of These Links
+
+- <a href="https://tinyurl.com/3x96trkc" class="button">Beijing Esensoft Co., Ltd</a>
+- <a href="https://tinyurl.com/y9j5ujv8" class="button">NREH ESTATE INFORMATION TECHNOLOGY CO.,LTD</a>
+- <a href="https://tinyurl.com/6f6aesdw" class="button">China Railway Eryuan Engineering Group Co., Ltd.</a>
+- <a href="https://tinyurl.com/3fpdcf6b" class="button">Dtt Technology Co.,Ltd.</a>
+- <a href="https://tinyurl.com/4fz7uajp" class="button">TCL household Appliance Marketing Co., LTD</a>
+- <a href="https://api.khoindvn.eu.org/qqlFXY" class="button">Wuling Power Corporation</a>
+- <a href="https://api.khoindvn.eu.org/SYKaO8" class="button">HDFC Bank Limited</a>
+- <a href="https://api.khoindvn.eu.org/6BFC8C" class="button">Vietnam Electricity</a>
+- <a href="https://api.khoindvn.eu.org/y8PvzI" class="button">Kotak Mahindra Bank LtdK</a>
+- <a href="https://api.khoindvn.eu.org/XYymqT" class="button">China Continent Property & Casualty Insurance Company Ltd</a>
+- <a href="https://api.khoindvn.eu.org/1QbTEI" class="button">GAC TOYOTA MOTOR CO.,LTD</a>
+- <a href="https://api.khoindvn.eu.org/qIELXJ" class="button">Sunshine</a>
+- <a href="https://api.khoindvn.eu.org/o523rG" class="button">Sunshine 1</a>
+- <a href="https://api.khoindvn.eu.org/o523rG" class="button">Sunshine 2</a>
+
+### After Installation
+
+1. Go to **Settings → General → VPN, DNS, Device Management**.
+2. Tap on the Enterprise App and Trust the certificate.
+
+In Esign:
+- Go to the "Download" tab, tap the top-right ••• → Settings.
+- Enable:
+  - Auto Import
+  - Auto Delete
+
+---
+
+## Step 3: Get Developer Certificates
+
+Use expired certificates instead of fresh ones — most still work.
+
+<a href="https://github.com/NilayShenai/Resources/raw/refs/heads/main/Freeloading%20ftw.rar" class="button">Freeloading Certs (RAR)</a>
+
+### Instructions
+
+1. Go to the **Files** tab in Esign.
+2. Tap and extract the downloaded zip.
+3. Import a certificate of your choice (the one that installed Esign usually works).
+4. Delete the extracted folder and zip.
+
+Go to **Esign → Settings → Sign Default Config** and set:
+- Install after signed: Enabled  
+- Remove mobileprovision after signing: Enabled  
+- Install address: Local  
+- Compress level: Balance
+
+---
+
+## Step 4: Add Repositories
+
+Repos are app libraries that Esign pulls from. These links won’t open in Safari—copy/paste them manually.
+
+### Instructions
+
+1. In Esign, tap **App Source** (top left).
+2. Tap **+**.
+3. Paste the repo link.
+
+You’ll now be able to browse apps from that repo within Esign.
+
+---
+
+## Step 5: Sign and Install Apps
+
+Once you’ve downloaded an app from a repo, it’s not ready yet.
+
+### Instructions
+
+1. Tap **Signature**.
+2. Then tap **Install**.
+
+### To Clone or Duplicate an App
+
+1. Rename the app (example: YouTube Red).
+2. Modify the bundle ID:  
+   Original: `com.google.ios.youtube`  
+   Modified: `com.google.ios.youtube.1`
+
+---
+
+## Notes
+
+- If a certificate doesn't work, try another from the same batch.
+- Apple’s restrictions are mostly DNS/certificate based, not hardware locked.
+- Sideloading isn’t just about piracy or shady apps, it’s about freedom. Custom tools, indie apps, stuff Apple won’t approve because it’s “not aligned with their guidelines” (aka it doesn’t make them money).
+-  The App Store model isn’t about safety, it’s about control. If Apple cared about safety, they’d give you real permissions management. Instead, they give you animated emojis.
+
+---
+
+_That’s it. Clean, private, no App Store bullshit, just install your apps and be done with it. Fuck Apple._
